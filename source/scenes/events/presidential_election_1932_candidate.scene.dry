@@ -846,15 +846,15 @@ on-arrival: spd_support_reactionary = 1; left_dissent += 15; labor_dissent += 10
 Despite his known <span style="color: #808080;">reactionary</span> nature, Hindenburg has at least been keeping the <span style="color: #7A3C00;">Nazis</span> at bay. Thus, we must support him. [? if bruning_time: Hindenburg is reportedly dissatisfied with having been elected with the support of <span style="color: #c00000;">socialists</span>, blaming Brüning and his unpopular cabinet for this outcome. ?]
 
 @support_reactionary
-subtitle: This is the default option.
-view-if: not hindenburg_run and reactionary_candidate_1932 and reactionary_candidate_1932 != "Westarp" and reactionary_candidate_1932 != "Lettow-Vorbeck"
+subtitle: Glory to the DNVP!
+view-if: not hindenburg_run 
 on-arrival: spd_support_reactionary = 1; spd_support_reactionary_1 = 1; spd_choice = reactionary_candidate_1932; left_dissent += 15; labor_dissent += 10; hindenburg_angry -= 40; workers_spd -= 3; workers_kpd += 3; unemployed_spd -= 3; unemployed_kpd += 3
 
 For some reason, whether we are physically <i>unable</i> to run a candidate of our own, or genuinely believe that [+ reactionary_candidate_1932 +] is the safest bet for German democracy, we are supporting him now. 
 
 @support_reactionary_2
-subtitle: This is the default option.
-view-if: not hindenburg_run and secondary_reactionary_candidate_1932 and secondary_reactionary_candidate_1932 != "Westarp" and secondary_reactionary_candidate_1932 != "Lettow-Vorbeck"
+subtitle: Glory to the DNVP!
+view-if: not hindenburg_run a
 on-arrival: spd_support_reactionary = 1; spd_support_reactionary_2 = 1; spd_choice = secondary_reactionary_candidate_1932; left_dissent += 15; labor_dissent += 10; hindenburg_angry -= 40; workers_spd -= 3; workers_kpd += 3; unemployed_spd -= 3; unemployed_kpd += 3
 
 For some reason, whether we are physically <i>unable</i> to run a candidate of our own, or genuinely believe that [+ secondary_reactionary_candidate_1932 +] is the safest bet for German democracy, we are supporting him now. 
