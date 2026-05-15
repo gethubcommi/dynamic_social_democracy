@@ -2007,9 +2007,7 @@ go-to: coalition_menu
 @wholesome_coalition
 title: A "Kulturkampf" coalition is formed.
 subtitle: <span style="color: #c00000;">**SPD**</span> + <span style="color: #000000;">**[+ z_party_name +]**</span> + <span style="color: #A2D8E0;">**BVP**</span>[? if not lvp_formed:&nbsp;+ <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist:&nbsp;+ <span style="color: #C0A054;">**DVP**</span>?]?][? if lvp_formed:&nbsp;+ <span style="color: #FFCC00;">**LVP**</span>?]+[? if lvp_formed:&nbsp;+ <span style="color: #FFCC00;">**LVP**</span>?] + <span style="color: #3E88B3;">**DNVP**</span> + **Others** ([+ cordon_sanitaire +]%)
-view-if: (dnvp_leader == "Treviranus") or (dnvp_leader == "Lambach" and lambach_stays)) or (dnvp_leader == "Hergt")
-unavailable-subtitle: <span style="color: #c00000;">SPD</span> + <span style="color: #000000;">[+ z_party_name +]</span> + <span style="color: #A2D8E0;">BVP</span>[? if not lvp_formed:&nbsp;+ <span style="color: #D3C24D;">[+ ddp_name +]</span>[? if dvp_exist:&nbsp;+ <span style="color: #C0A054;">DVP</span>?]?][? if lvp_formed:&nbsp;+ <span style="color: #FFCC00;">LVP</span>?]+[? if lvp_formed:&nbsp;+ <span style="color: #FFCC00;">LVP</span>?] + <span style="color: #3E88B3;">DNVP</span> + Others ([+ cordon_sanitaire +]%) [? if dnvp_relation < 50: We need higher relations with the <span style="color: #3E88B3;">DNVP</span>. ?][? if z_relation < 50: We need higher relations with the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">CVP</span>?]. ?]
-choose-if: dnvp_relation >= 50 and z_relation >= 50
+choose-if: dnvp_relation >= -90 and z_relation >= -90
 on-arrival: leverage -= 10; in_wholesome_coalition = 1; in_grand_coalition = 1; spd_in_government = 1; foreign_minister_party = "DNVP"; interior_minister_party = "DNVP"; justice_minister_party = "DNVP"; justice_minister_party = "DNVP"; labor_minister_party = "DNVP"; reichswehr_minister_party = "DNVP"; economic_minister_party = "DNVP"; finance_minister_party = "DNVP"; agriculture_minister_party = "DNVP"; pro_republic += 100; hindenburg_angry = -500; 
 
 We have successfully formed a "wholesome" coalition of all the """constitutional""" parties. Who should be chancellor?
@@ -3005,7 +3003,7 @@ President [+ president +] faces a dilemma. He desperately desires a <span style=
 @emergency_braun
 title: We will form an emergency government with [+ president +]'s support.
 subtitle: This may have the effect of inflamming public sentiment against us, and the <span style="color: #808080;">reactionaries</span> will be against us each step of the way.
-on-arrival: sa_strength -= 100; sh_strength -= 100; in_emergency_government = 1; ddp_relation -= 5; lvp_relation -= 5; dvp_relation -= 5; z_relation -= 5; ddp_right += 1; ddp_cohesion -= 0.5; dvp_right += 3; lvp_right += 1; bourgeois_cooperation += 5; liberal_cooperation += 3
+on-arrival: sa_strength -= 100; sh_strength -= 100; in_emergency_government = 1; ddp_relation += 5; lvp_relation += 5; dvp_relation += 5; z_relation += 5; ddp_right -= 1; ddp_cohesion -= 9000; dvp_right -= 3; lvp_right -= 1; bourgeois_cooperation += 5; liberal_cooperation += 3
 
 Yes, an emergency minority government, with the support of the <span style="color: #c00000;">**SPD**</span>. Who should lead this emergency minority government?
 
@@ -3013,6 +3011,7 @@ Yes, an emergency minority government, with the support of the <span style="colo
 - @breitscheid_emergency_chancellor: Rudolf Breitscheid for emergency Chancellor.
 - @bruning_emergency_chancellor: Brüning of the [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?], as a goodwill gesture toward the bourgeoisie.
 - @wirth_emergency_chancellor: Joseph Wirth of the [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?], as a gesture of <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> unity.
+- @treviranus_emergency_chancellor: Gottfried Treviranus [? if DNVP_party_name != "DNVP": <span style="color: #4288B3;">DNVP</span>?][? if KVP_exist == "KVP": <span style="color: #4288B3;">**KVP**</span>?], as a gesture of <span style="color: #000000;">rep</span><span style="color: #DD0000;">ubl</span><span style="color: #FFCC00;">ican</span> unity.
 
 @braun_emergency_chancellor
 subtitle: [? if president == "Braun": This is unprecedented. ?][? if president != "Braun": Perhaps more acceptable to the bourgeois parties... ?]
@@ -3053,11 +3052,20 @@ The [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</spa
 - @far_right_coup
 - @emergency_no_confidence
 
+@treviranus_emergency_chancellor
+on-arrival: chancellor = "Treviranus"; chancellor_party = "DNVP"; spd_in_government = 1; z_relation += 100; dvp_relation += 300; ddp_relation += 300; lvp_relation += 300; dnvp_relation += 80; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD" 
+
+The DNVP is pleasantly surprised we have appointed Treviranus as chancellor and has made a coalition with us.
+
+- @far_right_coup
+- @emergency_no_confidence
+
+
 
 
 @far_right_coup
 title: The <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span> parties immediately launch a military coup against us...
-view-if: far_right_coalition >= 45
+view-if: 1 = 0
 on-arrival: sh_strength += 150; sa_strength += 150; sh_militancy += 0.05; sa_militancy += 0.05
 
 The <span style="color: #7A3C00;">far</span>-<span style="color: #3E88B3;">right</span> parties, seeing that we are willing to deny them government by questionably democratic means, have decided that they can only take power by undemocratic means, and have risen up in force against the sitting government.
