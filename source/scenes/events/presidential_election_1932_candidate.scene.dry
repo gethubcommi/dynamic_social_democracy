@@ -854,7 +854,7 @@ For some reason, whether we are physically <i>unable</i> to run a candidate of o
 
 @support_reactionary_2
 subtitle: Glory to the DNVP!
-view-if: not hindenburg_run a
+view-if: not hindenburg_run
 on-arrival: spd_support_reactionary = 1; spd_support_reactionary_2 = 1; spd_choice = secondary_reactionary_candidate_1932; left_dissent += 15; labor_dissent += 10; hindenburg_angry -= 40; workers_spd -= 3; workers_kpd += 3; unemployed_spd -= 3; unemployed_kpd += 3
 
 For some reason, whether we are physically <i>unable</i> to run a candidate of our own, or genuinely believe that [+ secondary_reactionary_candidate_1932 +] is the safest bet for German democracy, we are supporting him now. 
